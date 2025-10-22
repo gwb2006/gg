@@ -1,0 +1,159 @@
+{
+  "project": {
+    "name": "cjrh",
+    "description": "Demo project for Spring Boot with user management functionality",
+    "version": "0.0.1-SNAPSHOT",
+    "groupId": "com.example",
+    "artifactId": "cjrh"
+  },
+  "framework": {
+    "type": "Spring Boot",
+    "version": "3.5.6",
+    "javaVersion": "17"
+  },
+  "dependencies": [
+    {
+      "name": "spring-boot-starter-web",
+      "type": "Web"
+    },
+    {
+      "name": "spring-boot-starter-web-services",
+      "type": "Web Services"
+    },
+    {
+      "name": "spring-boot-starter-data-jpa",
+      "type": "JPA Data Access"
+    },
+    {
+      "name": "mysql-connector-j",
+      "type": "Database Connector",
+      "scope": "runtime"
+    },
+    {
+      "name": "spring-boot-devtools",
+      "type": "Development Tools",
+      "scope": "runtime"
+    },
+    {
+      "name": "lombok",
+      "type": "Code Generation"
+    },
+    {
+      "name": "spring-boot-starter-test",
+      "type": "Testing",
+      "scope": "test"
+    }
+  ],
+  "database": {
+    "type": "MySQL",
+    "url": "jdbc:mysql://localhost:3306/gg?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true",
+    "username": "root",
+    "driver": "com.mysql.cj.jdbc.Driver"
+  },
+  "hibernate": {
+    "ddlAuto": "update",
+    "showSql": true,
+    "dialect": "org.hibernate.dialect.MySQL8Dialect"
+  },
+  "projectStructure": {
+    "main": {
+      "java": "src/main/java/com/example/cjrh",
+      "resources": "src/main/resources",
+      "packages": {
+        "controller": "com.example.cjrh.controller",
+        "entity": "com.example.cjrh.entity",
+        "service": "com.example.cjrh.service",
+        "mapper": "com.example.cjrh.mapper",
+        "config": "com.example.cjrh.config",
+        "utils": "com.example.cjrh.utils"
+      }
+    },
+    "test": {
+      "java": "src/test/java",
+      "resources": "src/test/resources"
+    }
+  },
+  "modules": [
+    {
+      "name": "用户管理模块",
+      "description": "提供用户的CRUD操作",
+      "entities": ["User"],
+      "controllers": ["UserController"],
+      "services": ["UserService"],
+      "repositories": ["UserMapper"]
+    },
+    {
+      "name": "测试模块",
+      "description": "提供应用测试接口",
+      "controllers": ["TestController"]
+    }
+  ],
+  "apiEndpoints": [
+    {
+      "module": "用户管理",
+      "path": "/api/users",
+      "method": "GET",
+      "description": "获取所有用户"
+    },
+    {
+      "module": "用户管理",
+      "path": "/api/users/{id}",
+      "method": "GET",
+      "description": "根据ID获取用户"
+    },
+    {
+      "module": "用户管理",
+      "path": "/api/users",
+      "method": "POST",
+      "description": "创建新用户"
+    },
+    {
+      "module": "用户管理",
+      "path": "/api/users/{id}",
+      "method": "PUT",
+      "description": "更新用户信息"
+    },
+    {
+      "module": "测试模块",
+      "path": "/api/test/info",
+      "method": "GET",
+      "description": "获取应用基本信息"
+    },
+    {
+      "module": "测试模块",
+      "path": "/api/test/ping",
+      "method": "GET",
+      "description": "测试服务器响应"
+    },
+    {
+      "module": "测试模块",
+      "path": "/api/test/health",
+      "method": "GET",
+      "description": "获取系统健康状态"
+    }
+  ],
+  "databaseTables": [
+    {
+      "name": "sys_user",
+      "description": "用户表",
+      "columns": [
+        {"name": "id", "type": "Long", "primaryKey": true},
+        {"name": "username", "type": "String", "unique": true},
+        {"name": "password", "type": "String"},
+        {"name": "nickname", "type": "String"},
+        {"name": "email", "type": "String"},
+        {"name": "phone", "type": "String"},
+        {"name": "status", "type": "Integer"},
+        {"name": "create_time", "type": "LocalDateTime"},
+        {"name": "update_time", "type": "LocalDateTime"}
+      ]
+    }
+  ],
+  "status": {
+    "buildStatus": "SUCCESS",
+    "runStatus": "Running",
+    "serverPort": 8080,
+    "databaseConnection": "Connected",
+    "lastStartupTime": "2025-10-15T18:24:56+08:00"
+  }
+}
