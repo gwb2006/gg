@@ -1,0 +1,8 @@
+com\example\filter\LoginFilter.class
+com\example\entity\User.class
+com\example\servlet\LogoutServlet.class
+com\example\dao\UserDao.class
+com\example\servlet\MainServlet.class
+com\example\servlet\CaptchaServlet.class
+com\example\servlet\LoginServlet.class
+com\example\filter\AutoLoginFilter.class
